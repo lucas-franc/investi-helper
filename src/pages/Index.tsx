@@ -10,10 +10,7 @@ import { useToast } from '@/components/ui/use-toast';
 import { useIsMobile } from '@/hooks/use-mobile';
 import Card from '@/components/ui-components/Card';
 import { motion } from 'framer-motion';
-
-// Add dependency
-<lov-add-dependency>framer-motion@latest</lov-add-dependency>
-<lov-add-dependency>file-saver@latest</lov-add-dependency>
+import { Separator } from '@/components/ui/separator';
 
 const Index = () => {
   const isMobile = useIsMobile();
@@ -52,8 +49,8 @@ const Index = () => {
         
         {/* Tools Section */}
         <div className="max-w-5xl mx-auto px-4">
-          <Tabs defaultValue="compound-interest" className="space-y-8">
-            <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 mb-8">
+          <Tabs defaultValue="compound-interest" className="space-y-12">
+            <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 mb-12">
               <TabsTrigger value="compound-interest" className="flex items-center justify-center space-x-2 py-3">
                 <Calculator className="w-5 h-5" />
                 <span>Juros Compostos</span>
@@ -71,15 +68,39 @@ const Index = () => {
             </TabsList>
             
             <TabsContent value="compound-interest" className="mt-0 animate-fade-in focus:outline-none">
-              <CompoundInterestCalculator />
+              <Card variant="green" className="shadow-md border-2">
+                <div className="text-center mb-8">
+                  <Calculator className="w-12 h-12 mb-4 mx-auto text-green-600" />
+                  <h2 className="text-2xl font-semibold text-green-800">Calculadora de Juros Compostos</h2>
+                  <p className="text-green-600 mt-2">Calcule o crescimento do seu investimento ao longo do tempo</p>
+                  <Separator className="my-6 bg-green-100" />
+                </div>
+                <CompoundInterestCalculator />
+              </Card>
             </TabsContent>
             
             <TabsContent value="password-generator" className="mt-0 animate-fade-in focus:outline-none">
-              <PasswordGenerator />
+              <Card variant="purple" className="shadow-md border-2">
+                <div className="text-center mb-8">
+                  <KeyRound className="w-12 h-12 mb-4 mx-auto text-purple-600" />
+                  <h2 className="text-2xl font-semibold text-purple-800">Gerador de Senhas</h2>
+                  <p className="text-purple-600 mt-2">Crie senhas seguras e fáceis de lembrar</p>
+                  <Separator className="my-6 bg-purple-100" />
+                </div>
+                <PasswordGenerator />
+              </Card>
             </TabsContent>
             
             <TabsContent value="unit-converter" className="mt-0 animate-fade-in focus:outline-none">
-              <UnitConverter />
+              <Card variant="blue" className="shadow-md border-2">
+                <div className="text-center mb-8">
+                  <ArrowLeftRight className="w-12 h-12 mb-4 mx-auto text-blue-600" />
+                  <h2 className="text-2xl font-semibold text-blue-800">Conversor de Unidades</h2>
+                  <p className="text-blue-600 mt-2">Converta facilmente entre diferentes unidades de medida</p>
+                  <Separator className="my-6 bg-blue-100" />
+                </div>
+                <UnitConverter />
+              </Card>
             </TabsContent>
           </Tabs>
         </div>
